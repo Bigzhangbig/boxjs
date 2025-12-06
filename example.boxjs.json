@@ -1,0 +1,516 @@
+{
+  "id": "com.example.comprehensive",
+  "name": "BoxJS 完整示例订阅 - Comprehensive Example",
+  "author": "@example",
+  "icon": "https://avatars.githubusercontent.com/u/29748519?s=200&v=4",
+  "repo": "https://github.com/Bigzhangbig/boxjs",
+  "description": "这是一个包含所有 BoxJS 功能的完整示例订阅配置文件，适用于开发者参考和学习。This is a comprehensive example subscription configuration file containing all BoxJS features for developer reference.",
+  "onInstall": {
+    "title": "安装确认 - Installation Confirmation",
+    "message": "本订阅仅为示例，是否需要自动安装相关资源？This is an example subscription. Do you want to automatically install related resources?",
+    "install": {
+      "QuanX": "quantumult-x:///add-resource?remote-resource=%7B%22rewrite_remote%22%3A%5B%22https%3A%2F%2Fraw.githubusercontent.com%2FBigzhangbig%2Fboxjs%2Fmaster%2Fbox%2Frewrite%2Fboxjs.rewrite.quanx.conf%2Ctag%3Dboxjs-example%22%5D%7D",
+      "Loon": "loon://import?plugin=https://raw.githubusercontent.com/Bigzhangbig/boxjs/master/box/rewrite/boxjs.rewrite.loon.plugin",
+      "Surge": "surge:///install-module?url=https://raw.githubusercontent.com/Bigzhangbig/boxjs/master/box/rewrite/boxjs.rewrite.surge.sgmodule"
+    }
+  },
+  "apps": [
+    {
+      "id": "example.basic",
+      "name": "基础示例 - Basic Example",
+      "desc": "展示基本配置项和数据存储功能",
+      "descs": [
+        "演示基本的 keys 和 settings 配置",
+        "包含常用的开关和文本输入控件",
+        "适合初学者入门参考"
+      ],
+      "keys": [
+        "example_basic_cookie",
+        "example_basic_token",
+        "example_basic_user_data"
+      ],
+      "settings": [
+        {
+          "id": "example_basic_enable",
+          "name": "启用功能 - Enable Feature",
+          "val": true,
+          "type": "boolean",
+          "desc": "是否启用此示例应用的功能。Enable or disable this example app."
+        },
+        {
+          "id": "example_basic_username",
+          "name": "用户名 - Username",
+          "val": "",
+          "type": "text",
+          "placeholder": "请输入用户名 - Enter username",
+          "desc": "用于登录的用户名。Username for login."
+        },
+        {
+          "id": "example_basic_notify",
+          "name": "推送通知 - Push Notification",
+          "val": true,
+          "type": "boolean",
+          "desc": "完成操作后是否发送推送通知。Send push notification after operation."
+        }
+      ],
+      "author": "@example",
+      "repo": "https://github.com/Bigzhangbig/boxjs",
+      "script": "https://raw.githubusercontent.com/Bigzhangbig/boxjs/master/example/basic.js",
+      "icons": [
+        "https://raw.githubusercontent.com/Orz-3/mini/master/Color/Personal.png",
+        "https://raw.githubusercontent.com/Orz-3/task/master/Personal.png"
+      ]
+    },
+    {
+      "id": "example.advanced",
+      "name": "高级示例 - Advanced Example",
+      "desc": "展示所有类型的设置控件和高级功能",
+      "desc_html": "<h3>高级功能演示</h3><p>本应用演示了 BoxJS 支持的所有设置控件类型和高级功能，包括：</p><ul><li>各种输入控件（文本、数字、滑块等）</li><li>选择控件（单选、多选、下拉等）</li><li>颜色选择器</li><li>多脚本支持</li></ul>",
+      "descs_html": [
+        "<strong>功能一：</strong>支持所有类型的设置控件",
+        "<strong>功能二：</strong>支持多个运行脚本配置",
+        "<strong>功能三：</strong>支持复杂的数据结构"
+      ],
+      "keys": [
+        "example_adv_config",
+        "example_adv_data",
+        "example_adv_cache",
+        "example_adv_settings"
+      ],
+      "settings": [
+        {
+          "id": "example_adv_text",
+          "name": "单行文本 - Text Input",
+          "val": "默认文本 - Default text",
+          "type": "text",
+          "placeholder": "请输入文本 - Enter text",
+          "desc": "单行文本输入框示例。Single-line text input example."
+        },
+        {
+          "id": "example_adv_textarea",
+          "name": "多行文本 - Textarea",
+          "val": "第一行\n第二行\n第三行",
+          "type": "textarea",
+          "placeholder": "请输入多行文本，支持换行 - Enter multi-line text",
+          "autoGrow": true,
+          "rows": 5,
+          "desc": "多行文本输入框，支持自动增长。Multi-line textarea with auto-grow."
+        },
+        {
+          "id": "example_adv_number",
+          "name": "数字输入 - Number Input",
+          "val": 30,
+          "type": "number",
+          "min": 1,
+          "max": 1440,
+          "desc": "数字输入框，限制范围 1-1440。Number input with range 1-1440."
+        },
+        {
+          "id": "example_adv_boolean",
+          "name": "开关控件 - Boolean Switch",
+          "val": true,
+          "type": "boolean",
+          "desc": "布尔值开关控件。Boolean switch control."
+        },
+        {
+          "id": "example_adv_radios",
+          "name": "单选组 - Radio Group",
+          "val": "option2",
+          "type": "radios",
+          "items": [
+            {
+              "key": "option1",
+              "label": "选项一 - Option 1"
+            },
+            {
+              "key": "option2",
+              "label": "选项二 - Option 2"
+            },
+            {
+              "key": "option3",
+              "label": "选项三 - Option 3"
+            }
+          ],
+          "desc": "单选按钮组，只能选择一个选项。Radio group, single selection."
+        },
+        {
+          "id": "example_adv_checkboxes",
+          "name": "多选组 - Checkbox Group",
+          "val": ["feature1", "feature3"],
+          "type": "checkboxes",
+          "items": [
+            {
+              "key": "feature1",
+              "label": "功能一 - Feature 1"
+            },
+            {
+              "key": "feature2",
+              "label": "功能二 - Feature 2"
+            },
+            {
+              "key": "feature3",
+              "label": "功能三 - Feature 3"
+            },
+            {
+              "key": "feature4",
+              "label": "功能四 - Feature 4"
+            }
+          ],
+          "desc": "多选框组，可以选择多个选项。Checkbox group, multiple selections."
+        },
+        {
+          "id": "example_adv_selects",
+          "name": "下拉选择 - Select Dropdown",
+          "val": "mode2",
+          "type": "selects",
+          "items": [
+            {
+              "key": "mode1",
+              "label": "模式一：普通模式 - Mode 1: Normal"
+            },
+            {
+              "key": "mode2",
+              "label": "模式二：快速模式 - Mode 2: Fast"
+            },
+            {
+              "key": "mode3",
+              "label": "模式三：完整模式 - Mode 3: Full"
+            },
+            {
+              "key": "mode4",
+              "label": "模式四：自定义模式 - Mode 4: Custom"
+            }
+          ],
+          "desc": "下拉选择框。Select dropdown menu."
+        },
+        {
+          "id": "example_adv_slider",
+          "name": "滑块控件 - Slider",
+          "val": 50,
+          "type": "slider",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "desc": "滑块控件，用于选择数值范围。Slider for numeric range selection."
+        },
+        {
+          "id": "example_adv_colorpicker",
+          "name": "颜色选择器 - Color Picker",
+          "val": "#1E88E5",
+          "type": "colorpicker",
+          "desc": "颜色选择器，用于选择主题色。Color picker for theme color."
+        },
+        {
+          "id": "example_adv_timeout",
+          "name": "超时时间（秒） - Timeout (seconds)",
+          "val": 20,
+          "type": "number",
+          "min": 5,
+          "max": 60,
+          "desc": "HTTP 请求超时时间设置。HTTP request timeout setting."
+        },
+        {
+          "id": "example_adv_keyword_list",
+          "name": "关键词列表 - Keyword List",
+          "val": "关键词1,关键词2,关键词3",
+          "type": "textarea",
+          "placeholder": "多个关键词用英文逗号分隔 - Multiple keywords separated by comma",
+          "autoGrow": true,
+          "rows": 3,
+          "desc": "监控的关键词列表，多个关键词用英文逗号分隔。Keyword list for monitoring."
+        },
+        {
+          "id": "example_adv_cron",
+          "name": "定时规则 - Cron Expression",
+          "val": "0 9 * * *",
+          "type": "text",
+          "placeholder": "如：0 9 * * * 表示每天9点 - e.g., 0 9 * * * for 9 AM daily",
+          "desc": "Cron 表达式，用于设置定时任务。Cron expression for scheduled tasks."
+        }
+      ],
+      "scripts": [
+        {
+          "name": "主脚本 - Main Script",
+          "script": "https://raw.githubusercontent.com/Bigzhangbig/boxjs/master/example/advanced.js"
+        },
+        {
+          "name": "签到脚本 - Check-in Script",
+          "script": "https://raw.githubusercontent.com/Bigzhangbig/boxjs/master/example/checkin.js"
+        },
+        {
+          "name": "查询脚本 - Query Script",
+          "script": "https://raw.githubusercontent.com/Bigzhangbig/boxjs/master/example/query.js"
+        }
+      ],
+      "script_timeout": 30,
+      "author": "@example",
+      "repo": "https://github.com/Bigzhangbig/boxjs",
+      "icons": [
+        "https://raw.githubusercontent.com/Orz-3/mini/master/Color/Box.png",
+        "https://raw.githubusercontent.com/Orz-3/task/master/Box.png"
+      ]
+    },
+    {
+      "id": "example.session",
+      "name": "会话管理示例 - Session Management Example",
+      "desc": "展示多账号会话切换功能",
+      "descs": [
+        "支持保存和切换多个账号会话",
+        "每个会话独立保存配置和数据",
+        "适合需要管理多个账号的场景"
+      ],
+      "keys": [
+        "example_session_account1",
+        "example_session_account2",
+        "example_session_account3"
+      ],
+      "settings": [
+        {
+          "id": "example_session_current",
+          "name": "当前账号 - Current Account",
+          "val": "账号1",
+          "type": "text",
+          "desc": "当前使用的账号名称。Current account name."
+        },
+        {
+          "id": "example_session_cookie",
+          "name": "Cookie",
+          "val": "",
+          "type": "textarea",
+          "placeholder": "请输入 Cookie - Enter cookie",
+          "autoGrow": true,
+          "rows": 3,
+          "desc": "账号的 Cookie 信息。Account cookie information."
+        },
+        {
+          "id": "example_session_auto_switch",
+          "name": "自动切换 - Auto Switch",
+          "val": false,
+          "type": "boolean",
+          "desc": "是否自动切换账号。Automatically switch accounts."
+        }
+      ],
+      "author": "@example",
+      "repo": "https://github.com/Bigzhangbig/boxjs",
+      "script": "https://raw.githubusercontent.com/Bigzhangbig/boxjs/master/example/session.js",
+      "icons": [
+        "https://raw.githubusercontent.com/Orz-3/mini/master/Color/Static.png",
+        "https://raw.githubusercontent.com/Orz-3/task/master/Static.png"
+      ]
+    },
+    {
+      "id": "example.notification",
+      "name": "通知配置示例 - Notification Example",
+      "desc": "展示各种通知配置选项",
+      "descs": [
+        "支持自定义通知标题和内容",
+        "支持通知级别和声音设置",
+        "支持静默模式和勿扰时段"
+      ],
+      "keys": ["example_notify_config", "example_notify_history"],
+      "settings": [
+        {
+          "id": "example_notify_enable",
+          "name": "启用通知 - Enable Notifications",
+          "val": true,
+          "type": "boolean",
+          "desc": "是否启用推送通知。Enable push notifications."
+        },
+        {
+          "id": "example_notify_level",
+          "name": "通知级别 - Notification Level",
+          "val": "info",
+          "type": "radios",
+          "items": [
+            {
+              "key": "success",
+              "label": "成功 - Success"
+            },
+            {
+              "key": "info",
+              "label": "信息 - Info"
+            },
+            {
+              "key": "warning",
+              "label": "警告 - Warning"
+            },
+            {
+              "key": "error",
+              "label": "错误 - Error"
+            }
+          ],
+          "desc": "通知的级别类型。Notification level type."
+        },
+        {
+          "id": "example_notify_sound",
+          "name": "通知声音 - Notification Sound",
+          "val": true,
+          "type": "boolean",
+          "desc": "是否播放通知声音。Play notification sound."
+        },
+        {
+          "id": "example_notify_quiet_hours",
+          "name": "勿扰时段 - Quiet Hours",
+          "val": "22:00-08:00",
+          "type": "text",
+          "placeholder": "如：22:00-08:00",
+          "desc": "勿扰时段，此时间段内不发送通知。Quiet hours for no notifications."
+        },
+        {
+          "id": "example_notify_events",
+          "name": "通知事件 - Notification Events",
+          "val": ["success", "error"],
+          "type": "checkboxes",
+          "items": [
+            {
+              "key": "success",
+              "label": "成功时通知 - Notify on success"
+            },
+            {
+              "key": "error",
+              "label": "失败时通知 - Notify on error"
+            },
+            {
+              "key": "start",
+              "label": "开始时通知 - Notify on start"
+            },
+            {
+              "key": "complete",
+              "label": "完成时通知 - Notify on complete"
+            }
+          ],
+          "desc": "选择需要发送通知的事件类型。Select event types for notifications."
+        }
+      ],
+      "author": "@example",
+      "repo": "https://github.com/Bigzhangbig/boxjs",
+      "script": "https://raw.githubusercontent.com/Bigzhangbig/boxjs/master/example/notification.js",
+      "icons": [
+        "https://raw.githubusercontent.com/Orz-3/mini/master/Color/Notify.png",
+        "https://raw.githubusercontent.com/Orz-3/task/master/Notify.png"
+      ]
+    },
+    {
+      "id": "example.api",
+      "name": "API 配置示例 - API Configuration Example",
+      "desc": "展示 API 相关配置选项",
+      "descs": [
+        "支持自定义 API 端点",
+        "支持请求头和参数配置",
+        "支持超时和重试设置"
+      ],
+      "keys": [
+        "example_api_endpoint",
+        "example_api_token",
+        "example_api_cache"
+      ],
+      "settings": [
+        {
+          "id": "example_api_base_url",
+          "name": "API 基础 URL - API Base URL",
+          "val": "https://api.example.com",
+          "type": "text",
+          "placeholder": "https://api.example.com",
+          "desc": "API 服务的基础 URL。Base URL for API service."
+        },
+        {
+          "id": "example_api_key",
+          "name": "API 密钥 - API Key",
+          "val": "",
+          "type": "text",
+          "placeholder": "请输入 API 密钥 - Enter API key",
+          "desc": "用于 API 认证的密钥。API key for authentication."
+        },
+        {
+          "id": "example_api_timeout",
+          "name": "请求超时（秒） - Request Timeout (seconds)",
+          "val": 30,
+          "type": "slider",
+          "min": 5,
+          "max": 120,
+          "step": 5,
+          "desc": "API 请求的超时时间。API request timeout duration."
+        },
+        {
+          "id": "example_api_retry",
+          "name": "重试次数 - Retry Count",
+          "val": 3,
+          "type": "number",
+          "min": 0,
+          "max": 10,
+          "desc": "请求失败时的重试次数。Number of retries on failure."
+        },
+        {
+          "id": "example_api_headers",
+          "name": "自定义请求头 - Custom Headers",
+          "val": "User-Agent: Mozilla/5.0\nAccept: application/json",
+          "type": "textarea",
+          "placeholder": "每行一个请求头，格式：Key: Value",
+          "autoGrow": true,
+          "rows": 4,
+          "desc": "自定义 HTTP 请求头。Custom HTTP headers."
+        },
+        {
+          "id": "example_api_cache_enable",
+          "name": "启用缓存 - Enable Cache",
+          "val": true,
+          "type": "boolean",
+          "desc": "是否启用响应缓存。Enable response caching."
+        },
+        {
+          "id": "example_api_cache_ttl",
+          "name": "缓存时长（分钟） - Cache TTL (minutes)",
+          "val": 60,
+          "type": "number",
+          "min": 1,
+          "max": 1440,
+          "desc": "缓存的有效时长。Cache time-to-live duration."
+        }
+      ],
+      "author": "@example",
+      "repo": "https://github.com/Bigzhangbig/boxjs",
+      "script": "https://raw.githubusercontent.com/Bigzhangbig/boxjs/master/example/api.js",
+      "script_timeout": 45,
+      "icons": [
+        "https://raw.githubusercontent.com/Orz-3/mini/master/Color/API.png",
+        "https://raw.githubusercontent.com/Orz-3/task/master/API.png"
+      ]
+    },
+    {
+      "id": "example.dynamic",
+      "name": "动态选项示例 - Dynamic Options Example",
+      "desc": "展示从持久化数据中动态读取选项",
+      "descs": [
+        "下拉框选项可以从持久化数据中读取",
+        "适合需要动态更新选项的场景",
+        "演示 @ 符号引用数据的用法"
+      ],
+      "keys": ["example_dynamic_options", "example_dynamic_data"],
+      "settings": [
+        {
+          "id": "example_dynamic_source",
+          "name": "数据源选择 - Data Source Selection",
+          "val": "source1",
+          "type": "selects",
+          "items": "@example_dynamic_options",
+          "desc": "从持久化数据中读取的动态选项列表。Dynamic options from persistent data."
+        },
+        {
+          "id": "example_dynamic_manual",
+          "name": "手动输入 - Manual Input",
+          "val": "",
+          "type": "text",
+          "placeholder": "如果动态选项不满足需求，可以手动输入",
+          "desc": "手动输入数据源。Manual data source input."
+        }
+      ],
+      "author": "@example",
+      "repo": "https://github.com/Bigzhangbig/boxjs",
+      "script": "https://raw.githubusercontent.com/Bigzhangbig/boxjs/master/example/dynamic.js",
+      "icons": [
+        "https://raw.githubusercontent.com/Orz-3/mini/master/Color/Rocket.png",
+        "https://raw.githubusercontent.com/Orz-3/task/master/Rocket.png"
+      ]
+    }
+  ]
+}
